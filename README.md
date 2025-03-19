@@ -20,8 +20,30 @@ Create a .npmrc file in your code root dir
 
 ## Installation
 
+### Install with Github PAT
+
+Add Github PAT to .npmrc file
+
+```ini
+//npm.pkg.github.com/:_authToken=GITHUB_TOKEN
+```
+
 ```bash
 npm i -D @shin/tools@latest
+```
+
+### Install with git manually
+
+Add the script to package.json
+
+```json
+"scripts": {
+  "install-st": "git clone https://github.com/shin/tools.git && npm run build --prefix tools && npm i -D ./tools"
+}
+```
+
+```bash
+npm run install-st
 ```
 
 ## Usage

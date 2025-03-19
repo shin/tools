@@ -18,8 +18,8 @@
   ],
   "scripts": {
     "clean": "rm -rf node_modules dist",
-    "dev": "npm run clean && npm i && node esbuild.config.js --watch && tsc --emitDeclarationOnly",
-    "build": "npm run clean && npm i && node esbuild.config.js && tsc --emitDeclarationOnly",
+    "dev": "npm i && node esbuild.config.js --watch && tsc --emitDeclarationOnly",
+    "build": "npm i && node esbuild.config.js && tsc --emitDeclarationOnly",
     "publish": "npm run build && npm publish"
   },
   "devDependencies": {

@@ -2,6 +2,15 @@ import { context } from "esbuild"
 import { glob } from "glob"
 import fs from "fs"
 
+async function cleanDist() {
+  try {
+    await fs.promises.rm("dist", { recursive: true, force: true })
+    console.log("Esbuild: Cleaned dist directory.")
+  } catch (err) {
+    console.error("Esbuild: Failed to clean dist directory.", err)
+  }
+}
+
 // Plugin to append .js to relative imports
 const appendJsExtensionPlugin = {
   name: "append-js-extension",
@@ -35,6 +44,8 @@ const ctx = await context({
   bundle: false,
   plugins: [appendJsExtensionPlugin],
 })
+
+await cleanDist()
 
 if (process.argv.includes("--watch")) {
   await ctx.watch() // Enable watch mode

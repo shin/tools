@@ -1,0 +1,11 @@
+{
+  "monorepo": {
+    "electron": {
+      "dir": "packages/electron"
+    },
+    "next": {
+      "dir": "packages/next",
+      "useExports": true
+    }
+  }
+}
